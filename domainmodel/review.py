@@ -1,12 +1,11 @@
 from domainmodel.movie import Movie
 from datetime import datetime
-from domainmodel.user import User
+
 
 
 
 class Review:
-    def __init__(self, author : User, movie:Movie, review_text : str, rating : int):
-        self.__author = author
+    def __init__(self,  movie:Movie, review_text : str, rating : int):
         self.__movie = movie
         self.__review_text = review_text
         self.__rating = None
@@ -15,9 +14,7 @@ class Review:
             if 0 < rating <= 10:
                 self.__rating = rating
 
-    @property
-    def author(self):
-        return self.__author
+
 
     @property
     def movie(self) -> Movie:
@@ -34,7 +31,7 @@ class Review:
         return self.__timestamp
 
     def __repr__(self):
-        return "<Review for movie: {}, made by: {}, on: >".format(self.movie, self.author,self.timestamp)
+        return "<Review {}, {}>".format(self.movie, self.timestamp)
 
     def __eq__(self, other):
         if self.movie == other.movie and self.review_text == other.review_text \

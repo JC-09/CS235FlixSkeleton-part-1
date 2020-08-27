@@ -14,6 +14,7 @@ class User:
         self.__watched_movies = list()
         self.__reviews  = list()
         self.__time_spent_watching_movies_minutes = 0
+
     @property
     def user_name(self):
         return self.__user_name
