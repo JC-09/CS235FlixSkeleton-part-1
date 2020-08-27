@@ -1,5 +1,4 @@
 from domainmodel.movie import Movie
-from domainmodel.review import Review
 from domainmodel.user import User
 
 

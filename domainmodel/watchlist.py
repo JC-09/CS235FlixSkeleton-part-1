@@ -5,7 +5,9 @@ class WatchList:
         self.__watchlist = list()
         self.__start_index = 0
 
-
+    @property
+    def watchlist(self):
+        return self.__watchlist
     def add_movie(self, movie : Movie):
         if isinstance(movie, Movie):
             if movie not in self.__watchlist:

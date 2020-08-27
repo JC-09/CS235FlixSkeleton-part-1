@@ -22,7 +22,7 @@ def test_add_movie(watchlist):
     watchlist.add_movie(Movie("Ice Age", 2002))
     assert watchlist.size() == 2
 
-def test_remove_movies(watchlist):
+def test_remove_movie(watchlist):
     watchlist.add_movie(Movie("Moana", 2016))
     watchlist.add_movie(Movie("Ice Age", 2002))
     watchlist.add_movie(Movie("Guardians of the Galaxy", 2012))
