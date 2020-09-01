@@ -86,3 +86,5 @@ def test_equal(simulator):
     assert simulator.__eq__(simulator_1) == True
     assert simulator.__eq__(simulator_2) == False
 
+
+
