@@ -10,3 +10,11 @@ class TestMovieFileCSVReader:
         assert len(movie_file_reader.dataset_of_directors) == 644
         assert len(movie_file_reader.dataset_of_actors) == 1985
         assert len(movie_file_reader.dataset_of_genres) == 20
+
+        # more tests for extra features
+        assert len(movie_file_reader.dataset_of_description) == 1000
+        assert len(movie_file_reader.dataset_of_runtime) == 1000
+        assert len(movie_file_reader.dataset_of_ratings) == 1000
+        assert len(movie_file_reader.dataset_of_votes) == 1000
+        assert len(movie_file_reader.dataset_of_revenue) == 872
+        assert len(movie_file_reader.dataset_of_metadata) == 838

@@ -15,6 +15,14 @@ class MovieFileCSVReader:
         self.__dataset_of_directors = list()
         self.__dataset_of_genres = list()
 
+        #--- Further Extension ---#
+        self.__dataset_of_runtime = list()
+        self.__dataset_of_description = list()
+        self.__dataset_of_ratings = list()
+        self.__dataset_of_votes = list()
+        self.__dataset_of_revenue = list()
+        self.__dataset_of_metadata = list()
+
 
     def read_csv_file(self):
         duplicated_genre = []
@@ -38,6 +46,53 @@ class MovieFileCSVReader:
 
                 # Store potential duplicated genres
                 duplicated_genre.append(row['Genre'].split(','))
+
+                #Store description
+                description = row['Description']
+                self.__dataset_of_description.append(description)
+
+
+                # Store runtime
+                runtime = row['Runtime (Minutes)']
+                try:
+                    runtime = int(runtime)
+                    self.__dataset_of_runtime.append(runtime)
+                except ValueError:
+                    continue
+
+                # Store ratings
+                rating = row['Rating']
+                try:
+                    rating = float(rating)
+                    self.__dataset_of_ratings.append(rating)
+                except ValueError:
+                    continue
+
+                # Store votes
+                vote = row['Votes']
+                try:
+                    vote = int(vote)
+                    self.__dataset_of_votes.append(vote)
+                except ValueError:
+                    continue
+
+                # Store revenue
+                revenue = row["Revenue (Millions)"]
+                try:
+                    revenue = float(revenue)
+                    self.__dataset_of_revenue.append(revenue)
+                except ValueError:
+                    continue
+
+                # Store Metascore
+                meta_score = row["Metascore"]
+                try:
+                    meta_score = float(meta_score)
+                    self.__dataset_of_metadata.append(meta_score)
+                except ValueError:
+                    continue
+
+
 
         for actor_list in duplicated_actors:
             for current_actor in actor_list:
@@ -66,3 +121,26 @@ class MovieFileCSVReader:
     @property
     def dataset_of_genres(self):
         return self.__dataset_of_genres
+
+    @property
+    def dataset_of_runtime(self):
+        return self.__dataset_of_runtime
+    @property
+    def dataset_of_description(self):
+        return self.__dataset_of_description
+
+    @property
+    def dataset_of_ratings(self):
+        return self.__dataset_of_ratings
+
+    @property
+    def dataset_of_votes(self):
+        return self.__dataset_of_votes
+
+    @property
+    def dataset_of_revenue(self):
+        return self.__dataset_of_revenue
+
+    @property
+    def dataset_of_metadata(self):
+        return self.__dataset_of_metadata
